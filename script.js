@@ -3,7 +3,7 @@ async function loadData() {
 
     const employmentQuery = await fetch("employment_query.json").then(res => res.json());
 
-    const populationResponse = await fetch("https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/11ra.px", {
+    const populationResponse = await fetch("https://pxdata.stat.fi:443/PxWeb/api/v1/fi/StatFin/vaerak/statfin_vaerak_pxt_11ra.px", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -14,7 +14,7 @@ async function loadData() {
     const populationData = await populationResponse.json();
     console.log(populationData);
 
-    const employmentResponse = await fetch("https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/tyokay/115b.px", {
+    const employmentResponse = await fetch("https://pxdata.stat.fi:443/PxWeb/api/v1/fi/StatFin/tyokay/statfin_tyokay_pxt_115b.px", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -23,7 +23,6 @@ async function loadData() {
     });
 
     const employmentData = await employmentResponse.json();
-    console.log(employmentData);
 
     const municipalities =
     Object.values(populationData.dimension.alue_23_20260101.category.label);
