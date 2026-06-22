@@ -25,7 +25,7 @@ async function loadData() {
     const employmentData = await employmentResponse.json();
 
     const municipalities =
-    Object.values(populationData.dimension.alue_23_20260101.category.label);
+    Object.values(populationData.dimension?.alue_23_20260101.category.label);
 
     const populationValues = populationData.value;
 
